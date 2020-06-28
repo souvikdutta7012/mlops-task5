@@ -12,7 +12,7 @@ def extract(filename):
         regexp2 = r"(?P<ip>.*?) (?P<remote_log_name>.*?) (?P<userid>.*?) \[(?P<date>.*?) (?P<timezone>.*?)\] \"(?P<request_method>.*?) (?P<path>.*?) (?P<request_version>.*?)\" (?P<status>.*?) (?P<length>.*?) \"(?P<referrer>.*?)\" \"(?P<user_agent>.*?)\""
         ips_list = re.findall(regexp2, log)
         return ips_list
-logs = extract('access.log')
+logs = extract('/var/log/httpd/access_log')
 import numpy as np
 log_arr = np.array(logs)
 ip=log_arr[:,0]
